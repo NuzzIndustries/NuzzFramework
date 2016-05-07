@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NuzzFramework
 {
-    public interface IApplication
+    public static class Configuration
     {
-        void Initialize();
-        void Cleanup();
-        bool IsFrameworkHosted { get; }
+        public static Assembly AssetAssembly { get; set; }
+        
     }
 }

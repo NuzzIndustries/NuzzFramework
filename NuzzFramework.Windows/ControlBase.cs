@@ -11,8 +11,9 @@ using System.Windows.Controls;
 
 namespace NuzzFramework.Windows
 {
-    public abstract class ControlBase : UserControl
+    public class ControlBase : UserControl
     {
+        /*
         #region INotifyPropertyChanged Code
         public event PropertyChangedEventHandler PropertyChanged;
         private Dictionary<string, object> _notifyproperties = new Dictionary<string, object>();
@@ -41,7 +42,7 @@ namespace NuzzFramework.Windows
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-
+        */
         public static ControlBase CurrentlyInstantiating { get; set; }
 
         private ViewModelBase ViewModel { get; set; }
@@ -49,33 +50,39 @@ namespace NuzzFramework.Windows
         public ControlBase()
         {
             CurrentlyInstantiating = this;
-            //Initializer.Initialize();
 
+            if (Globals.CurrentApp == null)
+            {
+                Application.InitAppFromNonHostedProcess();
+            }
+                
             var ns = new NameScope();
             NameScope.SetNameScope(this, ns);
             ns["main"] = this;
         }
 
+        /*
         protected override void OnInitialized(EventArgs e)
         {
-            if (ViewModel != null)
-                this.DataContext = ViewModel;
-            ViewModel.ParentWindow = Window.GetWindow(this) as WindowBase;
+           // if (ViewModel != null)
+          //      this.DataContext = ViewModel;
+         //   ViewModel.ParentWindow = Window.GetWindow(this) as WindowBase;
 
             //Set resources
           //  Resources = new XAMLResources();
 
             //Call Initialize Component via Reflection, so you do not need 
             //to call InitializeComponent() every time in the sub class
+            /*
             this.GetType()
                 .GetMethod("InitializeComponent",
                     System.Reflection.BindingFlags.Public |
                     System.Reflection.BindingFlags.NonPublic |
                     System.Reflection.BindingFlags.Instance)
-                .Invoke(this, null);
-            base.OnInitialized(e);
-        }
-
+                .Invoke(this, null);*/
+          //  base.OnInitialized(e);
+      //  }
+    
         //Stub method here so that the design-time instantiator has a method to call
         void InitializeComponent() { }
 
