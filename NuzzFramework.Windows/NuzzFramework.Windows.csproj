@@ -57,6 +57,10 @@
     <Compile Include="WPFExtensions\UniversalValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CalcBinding\CalcBinding\CalcBinding.csproj">
+      <Project>{54ead481-b6fc-41bb-abbe-f0b33e123c61}</Project>
+      <Name>CalcBinding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NuzzFramework\NuzzFramework.Core.csproj">
       <Project>{e2f1f9eb-0dc8-48ef-a526-3de419261b6a}</Project>
       <Name>NuzzFramework.Core</Name>
