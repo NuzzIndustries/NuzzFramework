@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace NuzzFramework.Windows
 {
-    public class Binding : System.Windows.Data.Binding
+    public class Binding : CalcBinding.Binding
     {
         public Binding()
             : base()
         {
-            this.Converter = WindowBase.UniversalValueConverter;
+          //  this.Converter = WindowBase.UniversalValueConverter;
         }
 
         public Binding(string path)
             : base(path)
         {
-            this.Converter = WindowBase.UniversalValueConverter;
+           // this.Converter = WindowBase.UniversalValueConverter;
         }
     }
 }
